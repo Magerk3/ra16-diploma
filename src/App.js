@@ -1,58 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Basket } from "./components/Basket";
+import { Catalog } from "./features/catalog/Catalog";
+import { About } from "./components/About";
+import { MainPage } from "./components/MainPage";
+import { Page404 } from "./components/Page404";
+import { ProductPage } from "./features/productPage/ProductPage";
+import { Menu } from "./features/menu/Menu";
+import { Contacts } from "./components/Contacts";
+import { Footer } from "./components/Footer";
+import { selectCategories } from "./features/catalog/catalogSlice";
+import { Banner } from "./components/Banner";
+
+import "./App.css";
+import { useSelector } from "react-redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+    const categories = useSelector(selectCategories);
+
+    return (
+        <Router>
+            <div className="App">
+                <Menu />
+                <main className="container">
+                    <div className="row">
+                        <div className="col">
+                            <Banner />
+                        </div>
+                    </div>
+                </main>
+
+                <Routes>
+                    <Route path="/" exact element={<MainPage />}></Route>
+
+                    <Route path="/about" element={<About />}></Route>
+                    <Route
+                        path="/catalog/:prdId"
+                        element={<ProductPage />}
+                    ></Route>
+                    <Route path="/basket" element={<Basket />}></Route>
+                    <Route path="/contacts" element={<Contacts />}></Route>
+                    <Route path="*" element={<Page404 />}></Route>
+                    <Route path=":catId" element={<MainPage />}></Route>
+                    <Route
+                        path="/catalog/:catId?"
+                        element={<Catalog isCatalogPage={true} />}
+                    ></Route>
+                </Routes>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;
