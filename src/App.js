@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Basket } from "./components/Basket";
+import { Cart } from "./features/cart/Cart";
 import { Catalog } from "./features/catalog/Catalog";
 import { About } from "./components/About";
 import { MainPage } from "./components/MainPage";
@@ -35,10 +35,10 @@ function App() {
 
                     <Route path="/about" element={<About />}></Route>
                     <Route
-                        path="/catalog/:prdId"
+                        path="/products/:prdId"
                         element={<ProductPage />}
                     ></Route>
-                    <Route path="/basket" element={<Basket />}></Route>
+                    <Route path="/cart" element={<Cart />}></Route>
                     <Route path="/contacts" element={<Contacts />}></Route>
                     <Route path="*" element={<Page404 />}></Route>
                     <Route path=":catId" element={<MainPage />}></Route>

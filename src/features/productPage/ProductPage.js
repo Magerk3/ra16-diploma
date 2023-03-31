@@ -1,6 +1,6 @@
 import { useDebugValue, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import {
     selectPoductData,
     selectStatus,
@@ -12,6 +12,7 @@ import {
     decreaseQuantity,
     emptyState
 } from "./productPageSlice";
+import { addToCart } from "../cart/cartSlice";
 
 export const ProductPage = () => {
     const productData = useSelector(selectPoductData);
@@ -37,6 +38,10 @@ export const ProductPage = () => {
             return "catalog-item-size selected";
         else return "catalog-item-size";
     };
+
+    const handleAddToCartClick = () => {
+        dispatch(addToCart({...productData, quantity: quantity, chosenSize: selectedSizeInStore}))
+    }
 
     useEffect(() => {
         dispatch(loadProductData(prdId));
@@ -137,9 +142,9 @@ export const ProductPage = () => {
                         </p> : <></>}
                         
                     </div>
-                    {selectedSizeInStore ? <button className="btn btn-danger btn-block btn-lg">
-                        В корзину
-                    </button> : <></>}
+                    {selectedSizeInStore ? <NavLink to='/cart'><button onClick={handleAddToCartClick} className="btn btn-danger btn-block btn-lg">
+                       В корзину 
+                    </button></NavLink> : <></>}
                     
                 </div>
             </div>

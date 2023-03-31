@@ -4,6 +4,7 @@ import { search } from "../catalog/catalogSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { SearchBar } from "../search/SearchBar";
 import { incrementClicks } from "../search/searchBarSlice";
+import { selectNumberOfOreders } from "../cart/cartSlice";
 import {
     selectSearchString,
     select_times_clicked_on_lens,
@@ -13,6 +14,7 @@ export const Menu = () => {
     const dispatch = useDispatch();
     const searchParams = useSelector(selectSearchString);
     const clicks = useSelector(select_times_clicked_on_lens);
+    const numberOfOreders = useSelector(selectNumberOfOreders);
 
     const handleClick = () => {
         dispatch(incrementClicks());
@@ -68,13 +70,14 @@ export const Menu = () => {
                                         className="header-controls-pic header-controls-search"
                                         onClick={handleClick}
                                     ></div>
-
-                                    <div className="header-controls-pic header-controls-cart">
-                                        <div className="header-controls-cart-full">
-                                            1
+                                    <NavLink to="/cart">
+                                        <div className="header-controls-pic header-controls-cart">
+                                            <div className="header-controls-cart-full">
+                                                {numberOfOreders}
+                                            </div>
+                                            <div className="header-controls-cart-menu"></div>
                                         </div>
-                                        <div className="header-controls-cart-menu"></div>
-                                    </div>
+                                    </NavLink>
                                 </div>
                                 <SearchBar isInMenu={true} />
                             </div>

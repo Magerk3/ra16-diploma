@@ -104,7 +104,7 @@ export const Catalog = ({ isCatalogPage }) => {
                                                             {product.price} руб
                                                         </p>
                                                         <NavLink
-                                                            to={`/catalog/${product.id}`}
+                                                            to={`/products/${product.id}`}
                                                             className="btn btn-outline-primary"
                                                         >
                                                             Заказать
