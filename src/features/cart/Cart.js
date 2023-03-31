@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeFromCart, selectCartItems } from "./cartSlice";
 import { useEffect } from "react";
-
+import { Ordering } from "../ordering/Ordering";
 
 export const Cart = () => {
     const cartItems = useSelector(selectCartItems);
@@ -20,7 +20,7 @@ export const Cart = () => {
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
-        console.log(JSON.parse(localStorage.getItem('cartItems')));
+        //console.log(JSON.parse(localStorage.getItem('cartItems')));
     }, [cartItems])
 
     return (
@@ -71,51 +71,7 @@ export const Cart = () => {
                             </tbody>
                         </table>
                     </section>
-                    <section className="order">
-                        <h2 className="text-center">Оформить заказ</h2>
-                        <div
-                            className="card"
-                            style={{ maxWidth: "30rem", margin: "0 auto" }}
-                        >
-                            <form className="card-body">
-                                <div className="form-group">
-                                    <label for="phone">Телефон</label>
-                                    <input
-                                        className="form-control"
-                                        id="phone"
-                                        placeholder="Ваш телефон"
-                                    ></input>
-                                </div>
-                                <div className="form-group">
-                                    <label for="address">Адрес доставки</label>
-                                    <input
-                                        className="form-control"
-                                        id="address"
-                                        placeholder="Адрес доставки"
-                                    ></input>
-                                </div>
-                                <div className="form-group form-check">
-                                    <input
-                                        type="checkbox"
-                                        className="form-check-input"
-                                        id="agreement"
-                                    ></input>
-                                    <label
-                                        className="form-check-label"
-                                        for="agreement"
-                                    >
-                                        Согласен с правилами доставки
-                                    </label>
-                                </div>
-                                <button
-                                    type="submit"
-                                    className="btn btn-outline-secondary"
-                                >
-                                    Оформить
-                                </button>
-                            </form>
-                        </div>
-                    </section>
+                    <Ordering />
                 </div>
             </div>
         </div>

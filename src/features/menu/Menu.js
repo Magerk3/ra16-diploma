@@ -72,9 +72,14 @@ export const Menu = () => {
                                     ></div>
                                     <NavLink to="/cart">
                                         <div className="header-controls-pic header-controls-cart">
-                                            <div className="header-controls-cart-full">
-                                                {numberOfOreders}
-                                            </div>
+                                            {numberOfOreders ? (
+                                                <div className="header-controls-cart-full">
+                                                    {numberOfOreders}
+                                                </div>
+                                            ) : (
+                                                <></>
+                                            )}
+
                                             <div className="header-controls-cart-menu"></div>
                                         </div>
                                     </NavLink>
