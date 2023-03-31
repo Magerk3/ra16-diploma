@@ -21,7 +21,6 @@ export const ProductPage = () => {
     const { prdId } = useParams();
     const [chosenSize, setChosenSize] = useState({});
     const selectedSizeInStore = useSelector(selectChosenSize);
-    console.log(selectedSizeInStore)
     const quantity = useSelector(selectQuantity);
 
     //console.log(productData)

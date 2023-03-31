@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { selectCartItems } from "./cartSlice";
+import { useEffect } from "react";
 
 export const Cart = () => {
     const cartItems = useSelector(selectCartItems);
@@ -11,6 +12,11 @@ export const Cart = () => {
         }
         return totalCost;
     }
+
+    useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        console.log(JSON.parse(localStorage.getItem('cartItems')));
+    }, [cartItems])
 
     return (
         <div className="container">
