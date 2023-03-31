@@ -23,7 +23,13 @@ export const Ordering = () => {
             "netology"
         ).toString();
         console.log(encryptedPhone, encruptedAddress);
-        dispatch(order(encryptedPhone,encruptedAddress, cartItems));
+        dispatch(
+            order({
+                phone: encryptedPhone,
+                addres: encruptedAddress,
+                items: cartItems,
+            })
+        );
         // Send the hashed data to a server or store it in a database
     };
 

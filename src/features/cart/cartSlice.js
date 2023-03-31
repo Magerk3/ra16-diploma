@@ -5,7 +5,7 @@ const initialState = {
     orderStatus: "idle",
 };
 
-export const order = createAsyncThunk("cart/order", async (phone, address, cartItems) => {
+export const order = createAsyncThunk("cart/order", async ({phone, address, items}) => {
     try {
         const response = await fetch("http://localhost:7070/api/order", {
             method: "POST",
@@ -17,7 +17,7 @@ export const order = createAsyncThunk("cart/order", async (phone, address, cartI
                     phone: phone,
                     address: address,
                 },
-                items: cartItems,
+                items: items,
             }),
         });
 
