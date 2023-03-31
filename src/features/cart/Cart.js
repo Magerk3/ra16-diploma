@@ -35,7 +35,7 @@ export const Cart = () => {
                                     <tr>
                                         <td>{index + 1}</td>
                                         <td>
-                                            <Link to={`/catalog/${item.id}`}>
+                                            <Link to={`/products/${item.id}`}>
                                                 {item.title}
                                             </Link>
                                         </td>
