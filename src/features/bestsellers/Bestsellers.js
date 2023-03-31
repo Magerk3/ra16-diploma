@@ -35,7 +35,7 @@ export const Bestsellers = () => {
                                     <div className="card-body">
                                         <p className="card-text">{bestseller.title}</p>
                                         <p className="card-text">{bestseller.price} руб</p>
-                                        <NavLink to={`catalog/${bestseller.id}`} className="btn btn-outline-primary">Заказать</NavLink>
+                                        <NavLink to={`products/${bestseller.id}`} className="btn btn-outline-primary">Заказать</NavLink>
                                     </div> 
                                 </div>
                             </div>

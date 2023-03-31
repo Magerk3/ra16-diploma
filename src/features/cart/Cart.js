@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { selectCartItems } from "./cartSlice";
+import { removeFromCart, selectCartItems } from "./cartSlice";
 import { useEffect } from "react";
+
 
 export const Cart = () => {
     const cartItems = useSelector(selectCartItems);
+    const dispatch = useDispatch();
     const getTotalCost = () => {
         let totalCost = 0;
         for(let item of cartItems){
@@ -12,6 +14,9 @@ export const Cart = () => {
         }
         return totalCost;
     }
+    const handleDelete = (id) => {
+        dispatch(removeFromCart(id))
+    } 
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -50,7 +55,7 @@ export const Cart = () => {
                                         <td>{item.price} руб.</td>
                                         <td>{item.price * item.quantity} руб.</td>
                                         <td>
-                                            <button className="btn btn-outline-danger btn-sm">
+                                            <button onClick={() => handleDelete(item.id)} className="btn btn-outline-danger btn-sm">
                                                 Удалить
                                             </button>
                                         </td>
