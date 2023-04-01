@@ -8,6 +8,25 @@ export const Ordering = () => {
     const dispatch = useDispatch();
     const orderStatus = useSelector(selectOrderStatus);
     const cartItems = useSelector(selectCartItems);
+    const postOrder =  async ({phone, address, items}) => {
+        const response = await fetch('http://localhost:7070/api/order', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "owner": {
+                  "phone": phone,
+                  "address": address,
+                },
+                "items": items
+              })
+        })
+        
+        if(!response.ok){
+            console.error('Response was not ok');
+        }
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,14 +41,16 @@ export const Ordering = () => {
             address,
             "netology"
         ).toString();
-        console.log(encryptedPhone, encruptedAddress);
+        console.log(typeof(phone), typeof(address));
+       // postOrder({phone: encryptedPhone, address: encruptedAddress, items: cartItems});
         dispatch(
             order({
-                phone: encryptedPhone,
-                addres: encruptedAddress,
+                phone: phone,
+                address: address,
                 items: cartItems,
             })
         );
+        //dispatch(order())
         // Send the hashed data to a server or store it in a database
     };
 

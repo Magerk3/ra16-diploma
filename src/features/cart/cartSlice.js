@@ -17,20 +17,14 @@ export const order = createAsyncThunk("cart/order", async ({phone, address, item
                     phone: phone,
                     address: address,
                 },
-                items: items,
+                items:  items.map(item => ({id: item.id, price: item.price, count: item.count})),
             }),
         });
-
+        console.log(response)
         if (!response.ok) {
             console.error("Failed to place order");
         }
-        try {
-            const json = await response.json();
-            return json;
-            
-        } catch (error) {
-            console.error("Failed to parse JSON", error);
-        }
+       
         
     } catch (error) {
         

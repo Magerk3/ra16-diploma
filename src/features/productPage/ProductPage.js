@@ -7,10 +7,10 @@ import {
     loadProductData,
     selectSize,
     selectChosenSize,
-    selectQuantity,
     increaseQuantity,
     decreaseQuantity,
-    emptyState
+    emptyState,
+    selectCount,
 } from "./productPageSlice";
 import { addToCart } from "../cart/cartSlice";
 
@@ -21,15 +21,14 @@ export const ProductPage = () => {
     const { prdId } = useParams();
     const [chosenSize, setChosenSize] = useState({});
     const selectedSizeInStore = useSelector(selectChosenSize);
-    const quantity = useSelector(selectQuantity);
+    const count = useSelector(selectCount);
 
     //console.log(productData)
     const handleSizeSelect = (sizeIndex) => {
         dispatch(selectSize(sizeIndex));
-       if (chosenSize.size === productData.sizes[sizeIndex].size) {
+        if (chosenSize.size === productData.sizes[sizeIndex].size) {
             setChosenSize({ size: "", available: false });
         } else setChosenSize(productData.sizes[sizeIndex]);
-        
     };
 
     const getClassNameOfSizeButton = (sizeIndex) => {
@@ -39,17 +38,23 @@ export const ProductPage = () => {
     };
 
     const handleAddToCartClick = () => {
-        dispatch(addToCart({...productData, quantity: quantity, chosenSize: selectedSizeInStore}))
-    }
+        dispatch(
+            addToCart({
+                ...productData,
+                count: count,
+                chosenSize: selectedSizeInStore,
+            })
+        );
+    };
 
     useEffect(() => {
         dispatch(loadProductData(prdId));
     }, [prdId]);
     useEffect(() => {
         return () => {
-            dispatch(emptyState())
-        }
-    }, [])
+            dispatch(emptyState());
+        };
+    }, []);
 
     return (
         <section className="catalog-item">
@@ -129,22 +134,47 @@ export const ProductPage = () => {
                                   ))
                                 : ""}{" "}
                         </p>
-                        {selectedSizeInStore ? <p>
-                            Количество:{" "}
-                            <span className="btn-group btn-group-sm pl-2">
-                                <button className="btn btn-secondary" onClick={() => {dispatch(decreaseQuantity())}}>-</button>
-                                <span className="btn btn-outline-primary">
-                                    {quantity}
+                        {selectedSizeInStore ? (
+                            <p>
+                                Количество:{" "}
+                                <span className="btn-group btn-group-sm pl-2">
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={() => {
+                                            dispatch(decreaseQuantity());
+                                        }}
+                                    >
+                                        -
+                                    </button>
+                                    <span className="btn btn-outline-primary">
+                                        {count}
+                                    </span>
+                                    <button
+                                        className="btn btn-secondary"
+                                        onClick={() => {
+                                            dispatch(increaseQuantity());
+                                        }}
+                                    >
+                                        +
+                                    </button>
                                 </span>
-                                <button className="btn btn-secondary" onClick={() => {dispatch(increaseQuantity())}}>+</button>
-                            </span>
-                        </p> : <></>}
-                        
+                            </p>
+                        ) : (
+                            <></>
+                        )}
                     </div>
-                    {selectedSizeInStore ? <NavLink to='/cart'><button onClick={handleAddToCartClick} className="btn btn-danger btn-block btn-lg">
-                       В корзину 
-                    </button></NavLink> : <></>}
-                    
+                    {selectedSizeInStore ? (
+                        <NavLink to="/cart">
+                            <button
+                                onClick={handleAddToCartClick}
+                                className="btn btn-danger btn-block btn-lg"
+                            >
+                                В корзину
+                            </button>
+                        </NavLink>
+                    ) : (
+                        <></>
+                    )}
                 </div>
             </div>
         </section>

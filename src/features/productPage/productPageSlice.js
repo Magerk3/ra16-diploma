@@ -4,7 +4,7 @@ const initialState = {
     status: "idle",
     productData: [],
     chosenSize: null,
-    quantity: 1,
+    count: 1,
 };
 
 export const loadProductData = createAsyncThunk(
@@ -30,10 +30,10 @@ export const productPageSlice = createSlice({
             }
         },
         increaseQuantity: (state) => {
-            if (state.quantity < 10) state.quantity++;
+            if (state.count < 10) state.count++;
         },
         decreaseQuantity: (state) => {
-            if (state.quantity > 1) state.quantity--;
+            if (state.count > 1) state.count--;
         },
         emptyState: (state) => {
             state.status = "idle";
@@ -61,6 +61,6 @@ export const { selectSize, increaseQuantity, decreaseQuantity, emptyState } =
 export const selectStatus = (state) => state.productPage.status;
 export const selectPoductData = (state) => state.productPage.productData;
 export const selectChosenSize = (state) => state.productPage.chosenSize;
-export const selectQuantity = (state) => state.productPage.quantity;
+export const selectCount = (state) => state.productPage.count;
 
 export default productPageSlice.reducer;

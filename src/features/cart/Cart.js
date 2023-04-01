@@ -10,7 +10,7 @@ export const Cart = () => {
     const getTotalCost = () => {
         let totalCost = 0;
         for(let item of cartItems){
-            totalCost += item.quantity * item.price;
+            totalCost += item.count * item.price;
         }
         return totalCost;
     }
@@ -51,9 +51,9 @@ export const Cart = () => {
                                             </Link>
                                         </td>
                                         <td>{item.chosenSize.size}</td>
-                                        <td>{item.quantity}</td>
+                                        <td>{item.count}</td>
                                         <td>{item.price} руб.</td>
-                                        <td>{item.price * item.quantity} руб.</td>
+                                        <td>{item.price * item.count} руб.</td>
                                         <td>
                                             <button onClick={() => handleDelete(item.id)} className="btn btn-outline-danger btn-sm">
                                                 Удалить
