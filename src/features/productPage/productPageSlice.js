@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { error, loaded, loading } from "../../statuses";
 
 const initialState = {
     status: "idle",
@@ -39,18 +40,18 @@ export const productPageSlice = createSlice({
             state.status = "idle";
             state.productData = [];
             state.chosenSize = null;
-            state.quantity = 1;
+            state.count = 1;
         },
     },
     extraReducers: (builder) => {
         builder.addCase(loadProductData.pending, (state) => {
-            state.status = "loading";
+            state.status = loading;
         });
         builder.addCase(loadProductData.rejected, (state) => {
-            state.status = "error";
+            state.status = error;
         });
         builder.addCase(loadProductData.fulfilled, (state, action) => {
-            state.status = "loaded";
+            state.status = loaded;
             state.productData = action.payload;
         });
     },

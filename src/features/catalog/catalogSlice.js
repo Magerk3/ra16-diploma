@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { error, loaded, loading } from "../../statuses";
 
 const initialState = {
     status: "idle",
@@ -59,46 +60,46 @@ const catalogSlice = createSlice({
     initialState,
     extraReducers: (builder) => {
         builder.addCase(fetchData.pending, (state) => {
-            state.status = "loading";
+            state.status = loading;
         });
         builder.addCase(fetchData.rejected, (state) => {
-            state.status = "error";
+            state.status = error;
         });
         builder.addCase(fetchData.fulfilled, (state, action) => {
-            state.status = "loaded";
+            state.status = loaded;
             state.showLoadButton = true;
             state.data = action.payload;
         });
         builder.addCase(fetchCategories.pending, (state) => {
-            state.categoriesStatus = "loading";
+            state.categoriesStatus = loading;
         });
         builder.addCase(fetchCategories.rejected, (state) => {
-            state.categoriesStatus = "error";
+            state.categoriesStatus = error;
         });
         builder.addCase(fetchCategories.fulfilled, (state, action) => {
-            state.categoriesStatus = "loaded";
+            state.categoriesStatus = loaded;
             state.categories = action.payload;
         });
         builder.addCase(fetchMore.pending, (state) => {
-            state.loadMoreStatus = "loading";
+            state.loadMoreStatus = loading;
         });
         builder.addCase(fetchMore.rejected, (state) => {
-            state.loadMoreStatus = "error";
+            state.loadMoreStatus = error;
         });
         builder.addCase(fetchMore.fulfilled, (state, action) => {
-            state.loadMoreStatus = "loaded";
-            if (action.payload.length < 6 && state.loadMoreStatus === "loaded")
+            state.loadMoreStatus = loaded;
+            if (action.payload.length < 6 && state.loadMoreStatus === loaded)
                 state.showLoadButton = false;
             state.data = state.data.concat(action.payload);
         });
         builder.addCase(search.pending, (state) => {
-            state.status = 'loading';
+            state.status = loading;
         });
         builder.addCase(search.rejected, (state) => {
-            state.status = "error";
+            state.status = error;
         });
         builder.addCase(search.fulfilled, (state, action) => {
-            state.status = "loaded";
+            state.status = loaded;
             state.data = action.payload;
         })
         
@@ -110,6 +111,7 @@ export const selectData = (state) => state.catalog.data;
 export const selectCategories = (state) => state.catalog.categories;
 export const selectShowLoadButton = (state) => state.catalog.showLoadButton;
 export const selectLoadMoreStatus = (state) => state.catalog.loadMoreStatus;
+export const selectCategoriesStatus = (state) => state.catalog.categoriesStatus;
 
 
 export default catalogSlice.reducer;

@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { error, loaded, loading } from "../../statuses";
 
 
 const initialState = {
@@ -19,13 +20,13 @@ export const bestsellersSlice = createSlice({
     initialState,
     extraReducers: (builder) => {
         builder.addCase(fetchData.pending, (state) => {
-            state.status = "loading";
+            state.status = loading;
         });
         builder.addCase(fetchData.rejected, (state) => {
-            state.status = "error";
+            state.status = error;
         });
         builder.addCase(fetchData.fulfilled, (state, action) => {
-            state.status = "loaded";
+            state.status = loaded;
             state.data = action.payload;
         });
     },

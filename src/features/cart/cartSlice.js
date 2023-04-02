@@ -1,36 +1,40 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { completed, error, ordering } from "../../statuses";
 
 const initialState = {
     cartItems: JSON.parse(localStorage.getItem("cartItems")),
     orderStatus: "idle",
 };
 
-export const order = createAsyncThunk("cart/order", async ({phone, address, items}) => {
-    try {
-        const response = await fetch("http://localhost:7070/api/order", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                owner: {
-                    phone: phone,
-                    address: address,
+export const order = createAsyncThunk(
+    "cart/order",
+    async ({ phone, address, items }) => {
+        try {
+            const response = await fetch("http://localhost:7070/api/order", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-                items:  items.map(item => ({id: item.id, price: item.price, count: item.count})),
-            }),
-        });
-        console.log(response)
-        if (!response.ok) {
-            console.error("Failed to place order");
+                body: JSON.stringify({
+                    owner: {
+                        phone: phone,
+                        address: address,
+                    },
+                    items: items.map((item) => ({
+                        id: item.id,
+                        price: item.price,
+                        count: item.count,
+                    })),
+                }),
+            });
+            console.log(response);
+            if (!response.ok) console.error("Failed to place order");
+            else localStorage.setItem("cartItems", []);
+        } catch (error) {
+            return error;
         }
-       
-        
-    } catch (error) {
-        
-        return error;
     }
-});
+);
 
 export const cartSlice = createSlice({
     name: "cart",
@@ -47,14 +51,16 @@ export const cartSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(order.pending, (state) => {
-            state.orderStatus = "ordering";
+            state.orderStatus = ordering;
         });
         builder.addCase(order.rejected, (state, action) => {
-            state.orderStatus = "error";
+            state.orderStatus = error;
             console.error("rejected with", action.payload);
         });
         builder.addCase(order.fulfilled, (state) => {
-            state.orderStatus = "completed";
+            state.orderStatus = completed;
+            state.cartItems = [];
+            
         });
     },
 });

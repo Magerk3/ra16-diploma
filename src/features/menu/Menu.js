@@ -1,28 +1,12 @@
-import { NavLink } from "react-router-dom";
 import logo from "../../img/header-logo.png";
-import { search } from "../catalog/catalogSlice";
-import { useDispatch, useSelector } from "react-redux";
+
 import { SearchBar } from "../search/SearchBar";
-import { incrementClicks } from "../search/searchBarSlice";
-import { selectNumberOfOreders } from "../cart/cartSlice";
-import {
-    selectSearchString,
-    select_times_clicked_on_lens,
-} from "../search/searchBarSlice";
+
+import { MenuSearchExpander } from "./MenuSearchExpander";
+import { MenuCartIcon } from "./MenuCartIcon";
+import { MenuNavigation } from "./MenuNavigation";
 
 export const Menu = () => {
-    const dispatch = useDispatch();
-    const searchParams = useSelector(selectSearchString);
-    const clicks = useSelector(select_times_clicked_on_lens);
-    const numberOfOreders = useSelector(selectNumberOfOreders);
-
-    const handleClick = () => {
-        dispatch(incrementClicks());
-        if (clicks > 1) {
-            dispatch(search(searchParams));
-        }
-    };
-
     return (
         <header className="container">
             <div className="row">
@@ -35,54 +19,11 @@ export const Menu = () => {
                             className="collapase navbar-collapse"
                             id="navbarMain"
                         >
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/">
-                                        Главная
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        className="nav-link"
-                                        to="/catalog/"
-                                    >
-                                        Каталог
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink className="nav-link" to="/about">
-                                        О магазине
-                                    </NavLink>
-                                </li>
-                                <li className="nav-item">
-                                    <NavLink
-                                        className="nav-link"
-                                        to="/contacts"
-                                    >
-                                        Контакты
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            <MenuNavigation />
                             <div>
                                 <div className="header-controls-pics">
-                                    <div
-                                        data-id="search-expander"
-                                        className="header-controls-pic header-controls-search"
-                                        onClick={handleClick}
-                                    ></div>
-                                    <NavLink to="/cart">
-                                        <div className="header-controls-pic header-controls-cart">
-                                            {numberOfOreders ? (
-                                                <div className="header-controls-cart-full">
-                                                    {numberOfOreders}
-                                                </div>
-                                            ) : (
-                                                <></>
-                                            )}
-
-                                            <div className="header-controls-cart-menu"></div>
-                                        </div>
-                                    </NavLink>
+                                    <MenuSearchExpander />
+                                    <MenuCartIcon />
                                 </div>
                                 <SearchBar isInMenu={true} />
                             </div>
