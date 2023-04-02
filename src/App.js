@@ -12,7 +12,7 @@ import { Footer } from "./components/Footer";
 
 import { Banner } from "./components/Banner";
 
-import "./App.css";
+
 
 function App() {
     return (
