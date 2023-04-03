@@ -1,16 +1,16 @@
 import { React } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Cart } from "./features/cart/Cart";
-import { Catalog } from "./features/catalog/Catalog";
-import { About } from "./components/About";
-import { MainPage } from "./components/MainPage";
-import { Page404 } from "./components/Page404";
-import { ProductPage } from "./features/productPage/ProductPage";
-import { Menu } from "./features/menu/Menu";
-import { Contacts } from "./components/Contacts";
-import { Footer } from "./components/Footer";
+import { Cart } from "./components/cart/Cart";
+import { Catalog } from "./components/catalog/Catalog";
+import { About } from "./pages/About";
+import { MainPage } from "./pages/MainPage";
+import { Page404 } from "./pages/Page404";
+import { ProductPage } from "./components/productPage/ProductPage";
+import { Menu } from "./components/menu/Menu";
+import { Contacts } from "./pages/Contacts";
+import { Footer } from "./pages/Footer";
 
-import { Banner } from "./components/Banner";
+import { Banner } from "./pages/Banner";
 
 
 
