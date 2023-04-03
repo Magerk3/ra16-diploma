@@ -3,7 +3,6 @@ export const Contacts = () => {
         <main className="container">
             <div className="row">
                 <div className="col">
-                    
                     <section className="top-sales">
                         <h2 className="text-center">Контакты</h2>
                         <p>

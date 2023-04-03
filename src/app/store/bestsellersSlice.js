@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { error, idle, loaded, loading } from "../../statuses";
 
-
 const initialState = {
     status: idle,
     data: [],

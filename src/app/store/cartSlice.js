@@ -60,7 +60,6 @@ export const cartSlice = createSlice({
         builder.addCase(order.fulfilled, (state) => {
             state.orderStatus = completed;
             state.cartItems = [];
-            
         });
     },
 });

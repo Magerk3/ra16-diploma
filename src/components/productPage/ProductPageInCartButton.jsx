@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const ProductPageInCartButton = ({handleClick, isSizeSelected}) => {
-    
+export const ProductPageInCartButton = ({ handleClick, isSizeSelected }) => {
     return (
         <>
             {isSizeSelected ? (

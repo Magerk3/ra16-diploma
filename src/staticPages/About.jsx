@@ -3,7 +3,6 @@ export const About = () => {
         <main className="container">
             <div className="row">
                 <div className="col">
-                   
                     <section className="top-sales">
                         <h2 className="text-center">О магазине</h2>
                         <p>

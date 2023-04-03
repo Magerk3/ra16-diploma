@@ -9,10 +9,7 @@ import { ProductPage } from "./components/productPage/ProductPage";
 import { Menu } from "./components/menu/Menu";
 import { Contacts } from "./staticPages/Contacts";
 import { Footer } from "./staticPages/Footer";
-
 import { Banner } from "./staticPages/Banner.jsx";
-
-
 
 function App() {
     return (

@@ -8,7 +8,6 @@ const initialState = {
     categories: [],
     loadMoreStatus: idle,
     showLoadButton: false,
-    
 };
 
 export const fetchData = createAsyncThunk(
@@ -49,7 +48,9 @@ export const fetchCategories = createAsyncThunk(
 export const search = createAsyncThunk(
     "catalog/search",
     async (searchString) => {
-        const response = await fetch(`http://localhost:7070/api/items?q=${searchString}`)
+        const response = await fetch(
+            `http://localhost:7070/api/items?q=${searchString}`
+        );
         const json = await response.json();
         return json;
     }
@@ -101,8 +102,7 @@ const catalogSlice = createSlice({
         builder.addCase(search.fulfilled, (state, action) => {
             state.status = loaded;
             state.data = action.payload;
-        })
-        
+        });
     },
 });
 
@@ -112,6 +112,5 @@ export const selectCategories = (state) => state.catalog.categories;
 export const selectShowLoadButton = (state) => state.catalog.showLoadButton;
 export const selectLoadMoreStatus = (state) => state.catalog.loadMoreStatus;
 export const selectCategoriesStatus = (state) => state.catalog.categoriesStatus;
-
 
 export default catalogSlice.reducer;
