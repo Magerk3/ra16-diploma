@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectOrderStatus, order, selectCartItems } from "../../app/store/cartSlice";
-import { Loader } from "../../pages/Loader";
+import { Loader } from "../../staticPages/Loader";
 import { OrderingSuccess } from "./OrderingSuccess";
 import { OrderingForm } from "./OrderingForm";
 import { completed, error, idle, ordering } from "../../statuses";

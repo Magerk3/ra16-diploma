@@ -13,7 +13,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { SearchBar } from "../searchBar/SearchBar";
-import { Loader } from "../../pages/Loader";
+import { Loader } from "../../staticPages/Loader";
 import { CatalogCategories } from "./CatalogCategories";
 import { CatalogProducts } from "./CatalogProducts";
 import { CatalogLoadMoreBut } from "./CatalogLoadMoreBut";

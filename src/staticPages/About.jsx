@@ -1,6 +1,3 @@
-import banner from "../img/banner.jpg"
-
-
 export const About = () => {
     return (
         <main className="container">

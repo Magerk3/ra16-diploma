@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData, selectBestsellers, selectStatus } from "../../app/store/bestsellersSlice";
-import { Loader } from "../../pages/Loader";
+import { Loader } from "../../staticPages/Loader";
 import { BestsellersProducts } from "./BestsellersProducts";
 import { loaded, loading } from "../../statuses";
 

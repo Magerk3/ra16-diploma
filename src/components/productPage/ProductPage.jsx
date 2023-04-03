@@ -11,12 +11,12 @@ import {
     selectSize,
     decreaseQuantity,
     increaseQuantity,
-} from "./productPageSlice";
+} from "../../app/store/productPageSlice";
 
 import { ProductPageTable } from "./ProductPageTable";
 import { ProductPageSizes } from "./ProductPageSizes";
 import { ProductPageInCartButton } from "./ProductPageInCartButton";
-import { Loader } from "../../pages/Loader";
+import { Loader } from "../../staticPages/Loader";
 import { error, loaded, loading } from "../../statuses";
 import { addToCart } from "../../app/store/cartSlice";
 import { ProductPageCountController } from "./ProductPageCountController";

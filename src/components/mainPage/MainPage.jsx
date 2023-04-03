@@ -1,5 +1,5 @@
-import { Bestsellers } from "../components/bestsellers/Bestsellers";
-import { Catalog } from "../components/catalog/Catalog";
+import { Bestsellers } from "../bestsellers/Bestsellers";
+import { Catalog } from "../catalog/Catalog";
 export const MainPage = () => {
     return (
         <main className="container">

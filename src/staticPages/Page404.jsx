@@ -1,5 +1,3 @@
-import banner from '../img/banner.jpg'
-
 export const Page404 = () => {
     return (
         <main className="container">

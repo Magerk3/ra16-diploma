@@ -1,6 +1,3 @@
-import banner from '../img/banner.jpg'
-
-
 export const Contacts = () => {
     return (
         <main className="container">

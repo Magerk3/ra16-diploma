@@ -1,7 +1,6 @@
 import { useCallback } from "react";
 import { NavLink } from "react-router-dom";
 
-
 export const CatalogCategories = ({ isCatalogPage, names }) => {
 
     const categories = useCallback(() => {
@@ -23,7 +22,6 @@ export const CatalogCategories = ({ isCatalogPage, names }) => {
         })
     }, [names, isCatalogPage])
     
-
     return (
         <ul className="catalog-categories nav justify-content-center">
             <li className="nav-item" key="all">

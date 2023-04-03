@@ -2,15 +2,15 @@ import { React } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Cart } from "./components/cart/Cart";
 import { Catalog } from "./components/catalog/Catalog";
-import { About } from "./pages/About";
-import { MainPage } from "./pages/MainPage";
-import { Page404 } from "./pages/Page404";
+import { About } from "./staticPages/About";
+import { MainPage } from "./components/mainPage/MainPage";
+import { Page404 } from "./staticPages/Page404";
 import { ProductPage } from "./components/productPage/ProductPage";
 import { Menu } from "./components/menu/Menu";
-import { Contacts } from "./pages/Contacts";
-import { Footer } from "./pages/Footer";
+import { Contacts } from "./staticPages/Contacts";
+import { Footer } from "./staticPages/Footer";
 
-import { Banner } from "./pages/Banner";
+import { Banner } from "./staticPages/Banner.jsx";
 
 
 
