@@ -16,7 +16,7 @@ export const BestsellersProducts = ({data}) => {
                         <div className="card-body">
                             <p className="card-text">{bestseller.title}</p>
                             <p className="card-text">{bestseller.price} руб</p>
-                            <Link to={`products/${bestseller.id}`} className="btn btn-outline-primary">Заказать</Link>
+                            <Link to={`/products/${bestseller.id}`} className="btn btn-outline-primary">Заказать</Link>
                         </div> 
                     </div>
                 </div>
