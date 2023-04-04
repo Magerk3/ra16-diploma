@@ -4,6 +4,7 @@ import catalogReducer from "./catalogSlice";
 import searchReducer from "./searchBarSlice";
 import productPageReducer from "./productPageSlice";
 import cartReducer from "./cartSlice";
+import orederingReducer from "./orderingSlice"
 export const store = configureStore({
     reducer: {
         bestsellers: bestsellersReducer,
@@ -11,5 +12,6 @@ export const store = configureStore({
         search: searchReducer,
         productPage: productPageReducer,
         cart: cartReducer,
+        ordering: orederingReducer,
     },
 });

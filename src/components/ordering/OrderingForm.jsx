@@ -1,4 +1,4 @@
-export const OrderingForm = ({ handleSubmit }) => {
+export const OrderingForm = ({ handleSubmit, isChecked, handleCheck }) => {
     return (
         <section className="order">
             <h2 className="text-center">Оформить заказ</h2>
@@ -8,7 +8,7 @@ export const OrderingForm = ({ handleSubmit }) => {
             >
                 <form className="card-body" onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label for="phone">Телефон</label>
+                        <label htmlFor="phone">Телефон</label>
                         <input
                             className="form-control"
                             id="phone"
@@ -16,7 +16,7 @@ export const OrderingForm = ({ handleSubmit }) => {
                         ></input>
                     </div>
                     <div className="form-group">
-                        <label for="address">Адрес доставки</label>
+                        <label htmlFor="address">Адрес доставки</label>
                         <input
                             className="form-control"
                             id="address"
@@ -28,8 +28,10 @@ export const OrderingForm = ({ handleSubmit }) => {
                             type="checkbox"
                             className="form-check-input"
                             id="agreement"
+                            checked={isChecked}
+                            onChange={handleCheck}
                         ></input>
-                        <label className="form-check-label" for="agreement">
+                        <label className="form-check-label" htmlFor="agreement">
                             Согласен с правилами доставки
                         </label>
                     </div>

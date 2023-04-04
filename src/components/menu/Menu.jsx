@@ -14,7 +14,6 @@ import { search } from "../../app/store/catalogSlice";
 import { useNavigate } from "react-router-dom";
 
 export const Menu = () => {
-
     const numberOfOreders = useSelector(selectNumberOfOreders);
     const clicks = useSelector(select_times_clicked_on_lens);
     const searchParams = useSelector(selectSearchString);
@@ -44,8 +43,12 @@ export const Menu = () => {
                             <MenuNavigation />
                             <div>
                                 <div className="header-controls-pics">
-                                    <MenuSearchExpander handleClick={handleClickOnExpander} />
-                                    <MenuCartIcon numberOfOrders={numberOfOreders} />
+                                    <MenuSearchExpander
+                                        handleClick={handleClickOnExpander}
+                                    />
+                                    <MenuCartIcon
+                                        numberOfOrders={numberOfOreders}
+                                    />
                                 </div>
                                 <SearchBar isInMenu={true} />
                             </div>

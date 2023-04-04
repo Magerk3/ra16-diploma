@@ -7,7 +7,7 @@ import {
     selectCategoriesStatus,
     selectCategories,
     selectData,
-    fetchMore
+    fetchMore,
 } from "../../app/store/catalogSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -68,7 +68,10 @@ export const Catalog = ({ isCatalogPage }) => {
                             ) : loadMoreStatus === loading ? (
                                 <Loader />
                             ) : (
-                                <CatalogLoadMoreBut fetchMore={fetchMore} catId={catId} />
+                                <CatalogLoadMoreBut
+                                    fetchMore={fetchMore}
+                                    catId={catId}
+                                />
                             )
                         ) : (
                             <></>
