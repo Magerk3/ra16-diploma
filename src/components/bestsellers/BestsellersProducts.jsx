@@ -14,9 +14,7 @@ export const BestsellersProducts = ({ data }) => {
                         ></img>
                         <div className="card-body">
                             <p className="card-text">{bestseller.title}</p>
-                            <p className="card-text">
-                                {bestseller.price} руб
-                            </p>
+                            <p className="card-text">{bestseller.price} руб</p>
                             <Link
                                 to={`/products/${bestseller.id}`}
                                 className="btn btn-outline-primary"
@@ -27,11 +25,7 @@ export const BestsellersProducts = ({ data }) => {
                     </div>
                 </div>
             );
-        })
-    }, [data])
-    return (
-        <div className="row">
-            {bestsellersData()}
-        </div>
-    );
+        });
+    }, [data]);
+    return <div className="row">{bestsellersData()}</div>;
 };

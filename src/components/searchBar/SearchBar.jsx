@@ -8,7 +8,6 @@ import { search } from "../../app/store/catalogSlice";
 import { select_times_clicked_on_lens } from "../../app/store/searchBarSlice";
 import { useCallback, useEffect, useState } from "react";
 
-
 export const SearchBar = ({ isInMenu }) => {
     const dispatch = useDispatch();
     const searchParams = useSelector(selectSearchString);

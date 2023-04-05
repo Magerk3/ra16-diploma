@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchData, selectBestsellers, selectStatus } from "../../app/store/bestsellersSlice";
+import {
+    fetchData,
+    selectBestsellers,
+    selectStatus,
+} from "../../app/store/bestsellersSlice";
 import { Loader } from "../../staticPages/Loader";
 import { BestsellersProducts } from "./BestsellersProducts";
 import { loaded, loading } from "../../statuses";
 
 export const Bestsellers = () => {
     const status = useSelector(selectStatus);
-    const bestsellers = useSelector(selectBestsellers)
+    const bestsellers = useSelector(selectBestsellers);
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(fetchData());
@@ -19,8 +23,10 @@ export const Bestsellers = () => {
             {status === loading ? (
                 <Loader />
             ) : status === loaded ? (
-               <BestsellersProducts data={bestsellers} />
-            ) : <></>}
+                <BestsellersProducts data={bestsellers} />
+            ) : (
+                <></>
+            )}
         </section>
     );
 };

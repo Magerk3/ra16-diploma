@@ -1,8 +1,7 @@
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
 
-export const CatalogProducts = ({products}) => {
-
+export const CatalogProducts = ({ products }) => {
     const catalogProducts = useCallback(() => {
         return products.map((product, index) => {
             return (
@@ -26,12 +25,8 @@ export const CatalogProducts = ({products}) => {
                     </div>
                 </div>
             );
-        })
-    }, [products])
-    
-    return (
-        <div className="row">
-            {catalogProducts()}
-        </div>
-    );
+        });
+    }, [products]);
+
+    return <div className="row">{catalogProducts()}</div>;
 };

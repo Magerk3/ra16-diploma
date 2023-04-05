@@ -5,14 +5,17 @@ export const ProductPageSizes = ({
     productData,
     selectedSize,
 }) => {
-    const getClassNameOfSizeButton = useCallback((sizeIndex) =>  {
-        if (
-            selectedSize &&
-            productData.sizes[sizeIndex].size === selectedSize.size
-        )
-            return "catalog-item-size selected";
-        else return "catalog-item-size";
-    },[productData, selectedSize] );
+    const getClassNameOfSizeButton = useCallback(
+        (sizeIndex) => {
+            if (
+                selectedSize &&
+                productData.sizes[sizeIndex].size === selectedSize.size
+            )
+                return "catalog-item-size selected";
+            else return "catalog-item-size";
+        },
+        [productData, selectedSize]
+    );
 
     const sizes = useCallback(() => {
         return productData.sizes.map((size, index) => (
@@ -23,17 +26,12 @@ export const ProductPageSizes = ({
             >
                 {size.available ? size.size : ""}
             </span>
-        ))
-    }, [productData, getClassNameOfSizeButton, handleSelect])
+        ));
+    }, [productData, getClassNameOfSizeButton, handleSelect]);
     return (
         <>
             <div className="text-center">
-                <p>
-                    Размеры в наличии:{" "}
-                    {productData.sizes
-                        ? sizes()
-                        : ""}{" "}
-                </p>
+                <p>Размеры в наличии: {productData.sizes ? sizes() : ""} </p>
             </div>
         </>
     );

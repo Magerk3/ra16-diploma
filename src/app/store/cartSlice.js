@@ -56,7 +56,7 @@ export const cartSlice = createSlice({
         },
         changeOrderStatus: (state, action) => {
             state.orderStatus = action.payload;
-        }
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(order.pending, (state) => {
@@ -73,7 +73,8 @@ export const cartSlice = createSlice({
     },
 });
 
-export const { addToCart, removeFromCart, changeOrderStatus } = cartSlice.actions;
+export const { addToCart, removeFromCart, changeOrderStatus } =
+    cartSlice.actions;
 export const selectCartItems = (state) => state.cart.cartItems;
 export const selectNumberOfOreders = (state) => state.cart.cartItems.length;
 export const selectOrderStatus = (state) => state.cart.orderStatus;

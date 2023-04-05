@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     searchString: "",
     times_clicked_on_lens: 0,
-    classNames: "",
 };
 
 const searchBarSlice = createSlice({
@@ -19,16 +18,11 @@ const searchBarSlice = createSlice({
         resetClicks: (state) => {
             state.times_clicked_on_lens = 0;
         },
-        
-
     },
 });
 
-export const {
-    updateSearchString,
-    incrementClicks,
-    resetClicks
-} = searchBarSlice.actions;
+export const { updateSearchString, incrementClicks, resetClicks } =
+    searchBarSlice.actions;
 
 export const selectSearchString = (state) => state.search.searchString;
 export const select_times_clicked_on_lens = (state) =>

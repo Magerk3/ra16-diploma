@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 
-export const CatalogLoadMoreBut = ({catId, fetchMore}) => {
+export const CatalogLoadMoreBut = ({ catId, fetchMore }) => {
     const dispatch = useDispatch();
     return (
         <div className="text-center">

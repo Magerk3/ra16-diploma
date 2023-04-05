@@ -17,9 +17,9 @@ function App() {
     const dispatch = useDispatch();
 
     const hideMenuSearchBar = () => {
-        dispatch(resetClicks())
-    }
-    
+        dispatch(resetClicks());
+    };
+
     return (
         <Router>
             <div className="App">
