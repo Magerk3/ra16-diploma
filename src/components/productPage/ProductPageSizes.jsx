@@ -1,32 +1,37 @@
+import { useCallback } from "react";
+
 export const ProductPageSizes = ({
     handleSelect,
     productData,
     selectedSize,
 }) => {
-    const getClassNameOfSizeButton = (sizeIndex) => {
+    const getClassNameOfSizeButton = useCallback((sizeIndex) =>  {
         if (
             selectedSize &&
             productData.sizes[sizeIndex].size === selectedSize.size
         )
             return "catalog-item-size selected";
         else return "catalog-item-size";
-    };
+    },[productData, selectedSize] );
 
+    const sizes = useCallback(() => {
+        return productData.sizes.map((size, index) => (
+            <span
+                className={getClassNameOfSizeButton(index)}
+                onClick={() => handleSelect(index)}
+                key={index}
+            >
+                {size.available ? size.size : ""}
+            </span>
+        ))
+    }, [productData, getClassNameOfSizeButton, handleSelect])
     return (
         <>
             <div className="text-center">
                 <p>
                     Размеры в наличии:{" "}
                     {productData.sizes
-                        ? productData.sizes.map((size, index) => (
-                              <span
-                                  className={getClassNameOfSizeButton(index)}
-                                  onClick={() => handleSelect(index)}
-                                  key={index}
-                              >
-                                  {size.available ? size.size : ""}
-                              </span>
-                          ))
+                        ? sizes()
                         : ""}{" "}
                 </p>
             </div>

@@ -10,13 +10,21 @@ import { Menu } from "./components/menu/Menu";
 import { Contacts } from "./staticPages/Contacts";
 import { Footer } from "./staticPages/Footer";
 import { Banner } from "./staticPages/Banner.jsx";
+import { useDispatch } from "react-redux";
+import { resetClicks } from "./app/store/searchBarSlice";
 
 function App() {
+    const dispatch = useDispatch();
+
+    const hideMenuSearchBar = () => {
+        dispatch(resetClicks())
+    }
+    
     return (
         <Router>
             <div className="App">
                 <Menu />
-                <main className="container">
+                <main className="container" onClick={hideMenuSearchBar}>
                     <div className="row">
                         <div className="col">
                             <Banner />

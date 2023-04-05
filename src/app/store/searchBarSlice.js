@@ -16,14 +16,18 @@ const searchBarSlice = createSlice({
         incrementClicks: (state) => {
             state.times_clicked_on_lens += 1;
         },
+        resetClicks: (state) => {
+            state.times_clicked_on_lens = 0;
+        },
+        
+
     },
 });
 
 export const {
     updateSearchString,
     incrementClicks,
-    changeClassName,
-    changeVisibility,
+    resetClicks
 } = searchBarSlice.actions;
 
 export const selectSearchString = (state) => state.search.searchString;

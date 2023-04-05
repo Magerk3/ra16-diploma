@@ -2,10 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     updateSearchString,
     selectSearchString,
+    resetClicks,
 } from "../../app/store/searchBarSlice";
 import { search } from "../../app/store/catalogSlice";
 import { select_times_clicked_on_lens } from "../../app/store/searchBarSlice";
 import { useCallback, useEffect, useState } from "react";
+
 
 export const SearchBar = ({ isInMenu }) => {
     const dispatch = useDispatch();
@@ -19,13 +21,16 @@ export const SearchBar = ({ isInMenu }) => {
                 setCLassNames(
                     "header-controls-search-form form-inline invisible"
                 );
-                if (clicks)
+                if (clicks > 0)
                     setCLassNames("header-controls-search-form form-inline");
+            } else if (clicks > 1) {
+                setCLassNames("header-controls-search-form form-inline");
+                dispatch(resetClicks());
             } else {
                 setCLassNames("catalog-search-form form-inline");
             }
         },
-        [clicks]
+        [clicks, dispatch]
     );
 
     useEffect(() => {
