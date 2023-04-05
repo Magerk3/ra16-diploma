@@ -1,0 +1,18 @@
+image:
+  name: node:alpine
+
+build_script:
+  - npm install
+  - cd backend && npm install
+  - cd .. && npm run build
+
+artifacts:
+  - path: build
+    name: my-app
+
+deploy:
+  - provider: GitHub
+    auth_token:
+      secure: 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
+    artifact: my-app
+    draft: true
