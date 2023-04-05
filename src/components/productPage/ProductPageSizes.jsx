@@ -19,19 +19,25 @@ export const ProductPageSizes = ({
 
     const sizes = useCallback(() => {
         return productData.sizes.map((size, index) => (
-            <span
-                className={getClassNameOfSizeButton(index)}
-                onClick={() => handleSelect(index)}
-                key={index}
-            >
-                {size.available ? size.size : ""}
-            </span>
+            <>
+                {size.available === true ? (
+                    <span
+                        className={getClassNameOfSizeButton(index)}
+                        onClick={() => handleSelect(index)}
+                        key={index}
+                    >
+                        {size.size}
+                    </span>
+                ) : (
+                    <></>
+                )}
+            </>
         ));
     }, [productData, getClassNameOfSizeButton, handleSelect]);
     return (
         <>
             <div className="text-center">
-                <p>Размеры в наличии: {productData.sizes ? sizes() : ""} </p>
+                <p>Размеры в наличии: {productData.sizes ? sizes() : ""}</p>
             </div>
         </>
     );
