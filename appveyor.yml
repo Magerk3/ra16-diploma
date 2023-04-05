@@ -1,5 +1,6 @@
-image:
-  name: node:alpine
+version: 1.0.{build}
+
+image: node:alpine
 
 build_script:
   - npm install
@@ -12,7 +13,5 @@ artifacts:
 
 deploy:
   - provider: GitHub
-    auth_token:
-      secure: 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
     artifact: my-app
     draft: true
