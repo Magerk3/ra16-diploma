@@ -11,7 +11,7 @@ import {
     select_times_clicked_on_lens,
 } from "../../app/store/searchBarSlice";
 import { search } from "../../app/store/catalogSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Menu = () => {
     const numberOfOreders = useSelector(selectNumberOfOreders);
@@ -24,7 +24,7 @@ export const Menu = () => {
         dispatch(incrementClicks());
         if (clicks > 0) {
             dispatch(search(searchParams));
-            navigate("/catalog");
+            navigate("/ra16-diploma/catalog");
         }
     };
 
@@ -33,9 +33,9 @@ export const Menu = () => {
             <div className="row">
                 <div className="col">
                     <nav className="navbar navbar-expand-sm navbar-light bg-light">
-                        <a className="navbar-brand" href="/">
+                        <Link className="navbar-brand" to="/ra16-diploma">
                             <img src={logo} alt="Bosa Noga"></img>
-                        </a>
+                        </Link>
                         <div
                             className="collapase navbar-collapse"
                             id="navbarMain"

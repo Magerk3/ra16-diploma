@@ -4,22 +4,22 @@ export const MenuNavigation = () => {
     return (
         <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-                <NavLink className="nav-link" to="/">
+                <NavLink className="nav-link" to="/ra16-diploma">
                     Главная
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink className="nav-link" to="/catalog/">
+                <NavLink className="nav-link" to="/ra16-diploma/catalog/">
                     Каталог
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink className="nav-link" to="/about">
+                <NavLink className="nav-link" to="/ra16-diploma/about">
                     О магазине
                 </NavLink>
             </li>
             <li className="nav-item">
-                <NavLink className="nav-link" to="/contacts">
+                <NavLink className="nav-link" to="/ra16-diploma/contacts">
                     Контакты
                 </NavLink>
             </li>

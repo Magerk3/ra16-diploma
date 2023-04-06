@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const MenuCartIcon = ({ numberOfOrders }) => {
     return (
-        <Link to="/cart">
+        <Link to="/ra16-diploma/cart">
             <div className="header-controls-pic header-controls-cart">
                 {numberOfOrders ? (
                     <div className="header-controls-cart-full">

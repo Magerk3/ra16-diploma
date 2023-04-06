@@ -50,7 +50,7 @@ export const Ordering = () => {
     };
 
     const handleContinueShopingClick = () => {
-        navigate("/");
+        navigate("/ra16-diploma/");
         dispatch(changeOrderStatus(idle));
     };
 

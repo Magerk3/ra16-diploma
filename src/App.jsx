@@ -30,7 +30,7 @@ function App() {
                             <Banner />
                             <Routes>
                                 <Route
-                                    path="/"
+                                    path="/ra16-diploma/"
                                     exact
                                     element={<MainPage />}
                                 ></Route>
@@ -40,21 +40,21 @@ function App() {
                                     element={<About />}
                                 ></Route>
                                 <Route
-                                    path="/products/:prdId"
+                                    path="/ra16-diploma/products/:prdId"
                                     element={<ProductPage />}
                                 ></Route>
                                 <Route path="/cart" element={<Cart />}></Route>
                                 <Route
-                                    path="/contacts"
+                                    path="/ra16-diploma/contacts"
                                     element={<Contacts />}
                                 ></Route>
                                 <Route path="*" element={<Page404 />}></Route>
                                 <Route
-                                    path=":catId"
+                                    path="/ra16-diploma/:catId"
                                     element={<MainPage />}
                                 ></Route>
                                 <Route
-                                    path="/catalog/:catId?"
+                                    path="/ra16-diploma/catalog/:catId?"
                                     element={<Catalog isCatalogPage={true} />}
                                 ></Route>
                             </Routes>
