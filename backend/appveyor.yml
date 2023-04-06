@@ -4,9 +4,7 @@ image: Visual Studio 2019
 
 build_script:
   - npm install
-  - cd backend && npm install
-  - cd .. && npm run build
-  - cd backend && npm run watch
+  - npm run watch
 
 artifacts:
   - path: build

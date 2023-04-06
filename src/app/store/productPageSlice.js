@@ -11,7 +11,7 @@ const initialState = {
 export const loadProductData = createAsyncThunk(
     "productPage/loadProduct",
     async (id) => {
-        const response = await fetch(`http://localhost:7070/api/items/${id}`);
+        const response = await fetch(`https://shoesmaketserver-gsk3.onrender.com/api/items/${id}`);
         const json = response.json();
         return json;
     }

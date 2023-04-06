@@ -27,7 +27,7 @@ export const fetchMore = createAsyncThunk(
     "catalog/fetchMore",
     async (categoryId) => {
         let response = await fetch(
-            `http://localhost:7070/api/items?categoryId=${
+            `https://shoesmaketserver-gsk3.onrender.com/api/items?categoryId=${
                 categoryId ? categoryId : ""
             }&offset=6`
         );
@@ -39,7 +39,7 @@ export const fetchMore = createAsyncThunk(
 export const fetchCategories = createAsyncThunk(
     "catalog/fetchCategories",
     async () => {
-        const response = await fetch("http://localhost:7070/api/categories");
+        const response = await fetch("https://shoesmaketserver-gsk3.onrender.com/api/categories");
         const json = await response.json();
         return json;
     }
@@ -49,7 +49,7 @@ export const search = createAsyncThunk(
     "catalog/search",
     async (searchString) => {
         const response = await fetch(
-            `http://localhost:7070/api/items?q=${searchString}`
+            `https://shoesmaketserver-gsk3.onrender.com/api/items?q=${searchString}`
         );
         const json = await response.json();
         return json;

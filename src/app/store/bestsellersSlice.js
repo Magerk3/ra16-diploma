@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const fetchData = createAsyncThunk("bestsellers/fetchData", async () => {
-    const response = await fetch("http://localhost:7070/api/top-sales");
+    const response = await fetch("https://shoesmaketserver-gsk3.onrender.com/api/top-sales");
     const json = await response.json();
     return json;
 });

@@ -10,7 +10,7 @@ export const order = createAsyncThunk(
     "cart/order",
     async ({ phone, address, items }) => {
         try {
-            const response = await fetch("http://localhost:7070/api/order", {
+            const response = await fetch("https://shoesmaketserver-gsk3.onrender.com/api/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
