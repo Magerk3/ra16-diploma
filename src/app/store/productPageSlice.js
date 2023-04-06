@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { error, loaded, loading } from "../../statuses";
+import { error, loaded, loading, server } from "../../statuses";
 
 const initialState = {
     status: "idle",
@@ -11,7 +11,7 @@ const initialState = {
 export const loadProductData = createAsyncThunk(
     "productPage/loadProduct",
     async (id) => {
-        const response = await fetch(`https://shoesmaketserver-gsk3.onrender.com/api/items/${id}`);
+        const response = await fetch(server + `/api/items/${id}`);
         const json = response.json();
         return json;
     }

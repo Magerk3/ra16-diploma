@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { completed, error, idle, ordering } from "../../statuses";
+import { completed, error, idle, server, ordering} from "../../statuses";
 
 const initialState = {
-    cartItems: JSON.parse(localStorage.getItem("cartItems")),
+    cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
     orderStatus: idle,
 };
 
@@ -10,7 +10,7 @@ export const order = createAsyncThunk(
     "cart/order",
     async ({ phone, address, items }) => {
         try {
-            const response = await fetch("https://shoesmaketserver-gsk3.onrender.com/api/order", {
+            const response = await fetch(server + "/api/order", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
