@@ -24,7 +24,7 @@ export const Menu = () => {
         dispatch(incrementClicks());
         if (clicks > 0) {
             dispatch(search(searchParams));
-            navigate("/ra16-diploma/catalog");
+            navigate("/catalog");
         }
     };
 
@@ -33,7 +33,7 @@ export const Menu = () => {
             <div className="row">
                 <div className="col">
                     <nav className="navbar navbar-expand-sm navbar-light bg-light">
-                        <Link className="navbar-brand" to="/ra16-diploma">
+                        <Link className="navbar-brand" to="/">
                             <img src={logo} alt="Bosa Noga"></img>
                         </Link>
                         <div

@@ -21,7 +21,7 @@ function App() {
     };
 
     return (
-        <Router>
+        <Router basename="/ra16-diploma">
             <div className="App">
                 <Menu />
                 <main className="container" onClick={hideMenuSearchBar}>
@@ -30,7 +30,7 @@ function App() {
                             <Banner />
                             <Routes>
                                 <Route
-                                    path="/ra16-diploma/"
+                                    path="/"
                                     exact
                                     element={<MainPage />}
                                 ></Route>
@@ -40,21 +40,21 @@ function App() {
                                     element={<About />}
                                 ></Route>
                                 <Route
-                                    path="/ra16-diploma/products/:prdId"
+                                    path="/products/:prdId"
                                     element={<ProductPage />}
                                 ></Route>
                                 <Route path="/cart" element={<Cart />}></Route>
                                 <Route
-                                    path="/ra16-diploma/contacts"
+                                    path="/contacts"
                                     element={<Contacts />}
                                 ></Route>
                                 <Route path="*" element={<Page404 />}></Route>
                                 <Route
-                                    path="/ra16-diploma/:catId"
+                                    path="/:catId"
                                     element={<MainPage />}
                                 ></Route>
                                 <Route
-                                    path="/ra16-diploma/catalog/:catId?"
+                                    path="/catalog/:catId?"
                                     element={<Catalog isCatalogPage={true} />}
                                 ></Route>
                             </Routes>

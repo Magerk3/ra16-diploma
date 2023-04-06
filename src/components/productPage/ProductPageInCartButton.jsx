@@ -4,7 +4,7 @@ export const ProductPageInCartButton = ({ handleClick, isSizeSelected }) => {
     return (
         <>
             {isSizeSelected ? (
-                <Link to="/ra16-diploma/cart">
+                <Link to="/cart">
                     <button
                         onClick={handleClick}
                         className="btn btn-danger btn-block btn-lg"
