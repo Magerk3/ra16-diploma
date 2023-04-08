@@ -16,7 +16,7 @@ import {
 import { ProductPageTable } from "./ProductPageTable";
 import { ProductPageSizes } from "./ProductPageSizes";
 import { ProductPageInCartButton } from "./ProductPageInCartButton";
-import { Loader } from "../../staticPages/Loader";
+import { Loader } from "../../UI/Loader";
 import { error, loaded, loading } from "../../statuses";
 import { addToCart } from "../../app/store/cartSlice";
 import { ProductPageCountController } from "./ProductPageCountController";

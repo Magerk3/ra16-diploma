@@ -8,8 +8,8 @@ import { Page404 } from "./staticPages/Page404";
 import { ProductPage } from "./components/productPage/ProductPage";
 import { Menu } from "./components/menu/Menu";
 import { Contacts } from "./staticPages/Contacts";
-import { Footer } from "./staticPages/Footer";
-import { Banner } from "./staticPages/Banner.jsx";
+import { Footer } from "./UI/Footer";
+import { Banner } from "./UI/Banner.jsx";
 import { useDispatch } from "react-redux";
 import { resetClicks } from "./app/store/searchBarSlice";
 

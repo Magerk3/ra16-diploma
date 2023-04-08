@@ -5,7 +5,7 @@ import {
     selectCartItems,
     changeOrderStatus,
 } from "../../app/store/cartSlice";
-import { Loader } from "../../staticPages/Loader";
+import { Loader } from "../../UI/Loader";
 import { OrderingSuccess } from "./OrderingSuccess";
 import { OrderingForm } from "./OrderingForm";
 import { completed, error, idle, ordering } from "../../statuses";

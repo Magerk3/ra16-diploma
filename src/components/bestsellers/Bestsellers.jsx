@@ -5,7 +5,7 @@ import {
     selectBestsellers,
     selectStatus,
 } from "../../app/store/bestsellersSlice";
-import { Loader } from "../../staticPages/Loader";
+import { Loader } from "../../UI/Loader";
 import { BestsellersProducts } from "./BestsellersProducts";
 import { loaded, loading } from "../../statuses";
 
