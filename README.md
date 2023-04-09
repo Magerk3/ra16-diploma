@@ -65,7 +65,7 @@
 
 ### Каталог товаров
 
-Экран «Каталог товаров» должен выглядеть следующим образом:
+Экран «Каталог товаров» выглядит следующим образом:
 
 ![Catalog](https://github.com/netology-code/ra16-diploma/blob/master/assets/catalog.png)
 
