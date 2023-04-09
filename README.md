@@ -48,11 +48,11 @@
 
 После загрузки страница выглядит следующим образом:
 
-![Frontpage](./assets/index-loaded.png)
+![Frontpage](https://github.com/netology-code/ra16-diploma/blob/master/assets/index-loaded.png)
 
 Общая схема:
 
-![Frontpage](https://github.com/netology-code/ra16-diploma/blob/master/assets/index-loaded.png)
+![Frontpage](https://github.com/netology-code/ra16-diploma/blob/master/assets/index-loaded-comments.png)
 
 Hеализовано:
 
