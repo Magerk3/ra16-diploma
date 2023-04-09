@@ -50,7 +50,7 @@
 
 ![Frontpage](https://github.com/netology-code/ra16-diploma/blob/master/assets/index-loaded-comments.png)
 
-Hеализовано:
+Реализовано:
 
 1. Хиты продаж — GET http://localhost:7070/api/top-sales. В ответ приходит JSON, содержащий данные. Если в ответе пришёл пустой массив, то есть хитов продаж нет, то компонент ничего  не отображает, так и не занимает место на экране.
 
